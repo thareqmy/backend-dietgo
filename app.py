@@ -24,17 +24,17 @@ def get_username():
 def predict_food():
 
     label = {
-        0: 'Bread',
-        1: 'Dairy',
-        2: 'Dessert',
-        3: 'Egg',
-        4: 'Fried',
-        5: 'Meat',
-        6: 'Noodles/Pasta',
-        7: 'Rice',
-        8: 'Seafood',
-        9: 'Soup',
-        10: 'Vegetables'
+        0: ['Bagel', 165, 'Biscuits', 131, 'Bread (White)', 61],
+        1: ['Milk', 91, 'Cheese', 210, 'Yoghurt', 225],
+        2: ['Apple Pie', 501, 'Cake', 660, 'Cupcake', 260],
+        3: ['Egg', 90, 'Egg Fried', 120, 'Omelette', 165],
+        4: ['French Fries', 213, 'Onion Ring', 321, 'Sausage', 351],
+        5: ['Beef', 330, 'Chicken', 220, 'Prok', 320],
+        6: ['Macaroni', 401, 'Noodle', 210, 'Spagetti', 307],
+        7: ['Rice', 200, 'Rice Cake', 327, 'Rice Bowl', 381],
+        8: ['Salmon',220, 'Lobster', 192, 'Shrimp', 281]
+        9: ['Cream Soup', 213, 'Porridge', 182, 'Soup', 105],
+        10: ['Carrot', 31, 'Corn', 81, 'Tomato', 58]
     }
 
     # Model reconstruction from JSON file
@@ -54,7 +54,7 @@ def predict_food():
 
 
         top_1 = result.argsort()[-1:][::-1]
-        return jsonify(predict=label[top_1[0]])
+        return jsonify(predict1=label[top_1[0]][0], cal1=label[top_1[0]][1], predict2=label[top_1[0]][2], cal2=label[top_1[0]][3], predict3=label[top_1[0]][4], cal3=label[top_1[0]][5])
 
 
 
