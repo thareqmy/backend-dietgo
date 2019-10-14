@@ -2,7 +2,7 @@ from flask import Flask, abort, jsonify, request, render_template, json
 from dotenv import load_dotenv
 from keras.models import model_from_json
 import numpy as np
-from keras.preprocessing import image
+from keras.preprocessing import image as im_g
 
 app = Flask(__name__)
 load_dotenv()
@@ -37,7 +37,7 @@ def predict_food():
         img.save(image_path)
 
 
-        img = image.load_img(image_path, target_size=(IMAGE_SIZE, IMAGE_SIZE))
+        img = im_g.load_img(image_path, target_size=(IMAGE_SIZE, IMAGE_SIZE))
 
         img = np.expand_dims(img, axis=0)
         result = model.predict(img)[0]
