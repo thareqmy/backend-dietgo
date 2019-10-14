@@ -32,7 +32,7 @@ def predict_food():
     if request.files:
         img = request.files["image"]
         IMAGE_SIZE = 200
-        image_path = os.path.join('static/img', img.filename)
+        image_path = os.path.join('static/', img.filename)
 
         img.save(image_path)
 
