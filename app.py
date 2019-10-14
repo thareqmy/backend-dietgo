@@ -33,15 +33,18 @@ def predict_food():
         img = request.files["image"]
         IMAGE_SIZE = 200
         image_path = os.path.join('static/', img.filename)
-
         img.save(image_path)
-
-
         img = im_g.load_img(image_path, target_size=(IMAGE_SIZE, IMAGE_SIZE))
-
         img = np.expand_dims(img, axis=0)
         result = model.predict(img)[0]
-        return jsonify(result)
+
+
+        top_1 = result.argsort()[-1:][::-1]
+        return jsonify(
+            {
+                "predict": top_1[0]
+            }
+        )
 
 
 
