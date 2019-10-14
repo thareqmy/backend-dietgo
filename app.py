@@ -40,7 +40,7 @@ def predict_food():
 
 
         top_1 = result.argsort()[-1:][::-1]
-        return jsonify(predict=top_1[0])
+        return jsonify(predict=str(top_1[0]))
 
 
 
