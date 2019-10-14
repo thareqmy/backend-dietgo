@@ -32,7 +32,7 @@ def predict_food():
         5: ['Beef', 330, 'Chicken', 220, 'Prok', 320],
         6: ['Macaroni', 401, 'Noodle', 210, 'Spagetti', 307],
         7: ['Rice', 200, 'Rice Cake', 327, 'Rice Bowl', 381],
-        8: ['Salmon',220, 'Lobster', 192, 'Shrimp', 281]
+        8: ['Salmon',220, 'Lobster', 192, 'Shrimp', 281],
         9: ['Cream Soup', 213, 'Porridge', 182, 'Soup', 105],
         10: ['Carrot', 31, 'Corn', 81, 'Tomato', 58]
     }
