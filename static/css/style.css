@@ -1,0 +1,282 @@
+@import url('https://rsms.me/inter/inter-ui.css');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Nunito');
+::selection {
+  background: #2D2F36;
+}
+::-webkit-selection {
+  background: #2D2F36;
+}
+::-moz-selection {
+  background: #2D2F36;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Nunito', 'Inter UI', sans-serif;
+}
+
+body {
+  background: white;
+  font-family: 'Nunito', 'Inter UI', sans-serif;
+}
+
+.page {
+  background-image: url(../img/test.jpeg);
+  display: flex;
+  flex-direction: column;
+  height: calc(100%);
+  position: absolute;
+  place-content: center;
+  width: calc(100%);
+  background-size: cover;
+}
+@media (max-width: 767px) {
+  .page {
+    height: auto;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+}
+.container {
+  display: flex;
+  height: 80%;
+  margin: 0 auto;
+  width: 80%;
+}
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    height: 630px;
+    width: 320px;
+  }
+}
+.left {
+  background: white;
+  height: calc(100% - 40px);
+  top: 20px;
+  position: relative;
+  width: 40%;
+}
+@media (max-width: 767px) {
+  .left {
+    height: 100%;
+    left: 20px;
+    width: calc(100% - 40px);
+    max-height: 270px;
+  }
+}
+.login {
+  font-size: 50px;
+  font-weight: 900;
+  margin: 50px 40px 40px;
+}
+.eula {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 40px;
+}
+.right {
+  background: #474A59;
+  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
+  color: #F1F1F2;
+  position: relative;
+  width: 60%;
+}
+@media (max-width: 767px) {
+  .right {
+    flex-shrink: 0;
+    height: 100%;
+    width: 100%;
+    max-height: 350px;
+  }
+}
+svg {
+  position: absolute;
+  width: 320px;
+}
+path {
+  fill: none;
+  stroke: url(#linearGradient);;
+  stroke-width: 4;
+  stroke-dasharray: 240 1386;
+}
+.form {
+  margin: 30px;
+  position: absolute;
+  overflow-y:  scroll; 
+  overflow: hidden;
+  height: 400px;
+}
+label {
+  color:  #c2c2c5;
+  display: block;
+  font-size: 14px;
+  height: 10px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  height: 16px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+input { 
+  color: #2D2F36;
+  background-color: #fff;
+  border: 0;
+  font-size: 15px;
+  height: 30px;
+  line-height: 30px;
+  outline: none !important;
+  width: 60%;
+  display: block;
+  border-radius: 4px;
+    padding-left: 17px;
+}
+select {
+  background-color: #fff;
+  border: 0;
+  color: black;
+  font-size: 20px;
+  height: 30px;
+  line-height: 30px;
+  outline: none !important;
+  width: 60%;
+  display: block;
+  border-radius: 4px;
+}
+input::-moz-focus-inner { 
+  border: 0; 
+}
+
+input[type="submit"]{
+    /* change these properties to whatever you want */
+    margin-top:  15px;
+    background-color:   #20B2AA;
+    color: #fff;
+    border-radius: 10px;
+    width: 60%;
+}
+
+input[type="text"]{
+  color: black;
+}
+/*#submit {
+  color: #707075;
+  margin-top: 40px;
+  transition: color 300ms;
+}
+#submit:focus {
+  color: #f2f2f2;
+}
+#submit:active {
+  color: #d0d0d2;
+}
+*/
+
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+}
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+.select-selected {
+  background-color: #FFF;
+  border-radius: 3px;
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #2D2F36 transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #2D2F36 transparent;
+  top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #2D2F36;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #F1F1F2;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*UPLOAD PHOTO BUTTON STYLE*/
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+#file{
+  width: 100%;
+}
+
+.result-box {
+  margin: auto auto;
+  float: center;
+  background: #ff4238;
+  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.4);
+  color: white;
+  position: relative;
+  width: 40%;
+  height: 130px;
+  border-radius: 4px;
+  display: block;
+  font-size: 16pt;
+}
+.result-box p {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.back {
+  text-align: center;
+  padding-bottom: 10px;
+  text-decoration: underline;
+}
+
+.back:hover {
+  cursor: pointer;
+}
