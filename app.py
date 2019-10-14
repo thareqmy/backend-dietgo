@@ -23,6 +23,20 @@ def get_username():
 @app.route('/predict', methods=['GET','POST'])
 def predict_food():
 
+    label = {
+        0: 'Bread',
+        1: 'Dairy',
+        2: 'Dessert',
+        3: 'Egg',
+        4: 'Fried',
+        5: 'Meat',
+        6: 'Noodles/Pasta',
+        7: 'Rice',
+        8: 'Seafood',
+        9: 'Soup',
+        10: 'Vegetables'
+    }
+
     # Model reconstruction from JSON file
     with open('model/vgg16.json', 'r') as f:
         model = model_from_json(f.read())
@@ -40,7 +54,7 @@ def predict_food():
 
 
         top_1 = result.argsort()[-1:][::-1]
-        return jsonify(predict=str(top_1[0]))
+        return jsonify(predict=label(top_1[0]))
 
 
 
