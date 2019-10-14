@@ -1,6 +1,8 @@
 from flask import Flask, abort, jsonify, request, render_template, json
 from dotenv import load_dotenv
 from keras.models import model_from_json
+import numpy as np
+from keras.preprocessing import image
 
 app = Flask(__name__)
 load_dotenv()
@@ -28,10 +30,17 @@ def predict_food():
     # Load weights into the new model
     model.load_weights('model/vgg16.h5')
     if request.files:
-        image = request.files["image"]
+        img = request.files["image"]
         IMAGE_SIZE = 200
-        image = np.expand_dims(image, axis=0)
-        result = model.predict(image)[0]
+        image_path = os.path.join('static/img', img.filename)
+
+        img.save(image_path)
+
+
+        img = image.load_img(image_path, target_size=(IMAGE_SIZE, IMAGE_SIZE))
+
+        img = np.expand_dims(img, axis=0)
+        result = model.predict(img)[0]
         return jsonify(result)
 
 
