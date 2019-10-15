@@ -54,10 +54,11 @@ def predict_food():
 
 if __name__ == '__main__':
     import os
+    global model
 
     # Model reconstruction from JSON file
     with open('model/vgg16.json', 'r') as f:
-        global model = model_from_json(f.read())
+        model = model_from_json(f.read())
 
     # Load weights into the new model
     model.load_weights('model/vgg16.h5')
