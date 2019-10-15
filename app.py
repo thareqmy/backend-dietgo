@@ -37,12 +37,6 @@ def predict_food():
         10: ['Carrot', 31, 'Corn', 81, 'Tomato', 58]
     }
 
-    # Model reconstruction from JSON file
-    with open('model/vgg16.json', 'r') as f:
-        model = model_from_json(f.read())
-
-    # Load weights into the new model
-    model.load_weights('model/vgg16.h5')
     if request.files:
         img = request.files["image"]
         IMAGE_SIZE = 200
@@ -60,6 +54,14 @@ def predict_food():
 
 if __name__ == '__main__':
     import os
+
+    # Model reconstruction from JSON file
+    with open('model/vgg16.json', 'r') as f:
+        global model = model_from_json(f.read())
+
+    # Load weights into the new model
+    model.load_weights('model/vgg16.h5')
+
     ENV = os.getenv("APP_ENV")
     if (ENV=='development'):
         app.run(port=os.getenv("APP_PORT"), debug=True)
