@@ -36,6 +36,7 @@ def predict_food():
         9: ['Cream Soup', 213, 'Porridge', 182, 'Soup', 105],
         10: ['Carrot', 31, 'Corn', 81, 'Tomato', 58]
     }
+    global model
 
     if request.files:
         img = request.files["image"]
@@ -54,7 +55,6 @@ def predict_food():
 
 if __name__ == '__main__':
     import os
-    global model
 
     # Model reconstruction from JSON file
     with open('model/vgg16.json', 'r') as f:
